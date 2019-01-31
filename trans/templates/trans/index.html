@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+
+<form action = "" method = "post">
+{% csrf_token %}
+INPUT YOUR SENTENSE: 
+<input type = "text" name = "question" value = "" maxlength = "2000" />
+<br />
+            
+<!--OUTPUT OF SENTENSE: 
+<input type = "text" name = "answer" value = ""  maxlength = "2000" /> -->
+<input type = "submit" value = "Submit" />
+</form>
+<a href="{% url 'trans:ans' %}">click here</a>
+
+</body>
+</html>
