@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Analysis
+	</title>
+</head>
+<body>
+		<h3>this is a Entered string: {{string}}</h3>
+
+		<p>polarity of a string is:{{polar}}</p>
+
+		<p>subjectivity of a string is : {{subject}}</p>
+
+		<p>Judgements are done on the basis of:
+			<br>
+			{% for field in asse %}
+					{{field}}
+
+			{% endfor %}		
+		  </p>
+
+		<p>Part of speech are :
+			</br>
+			{% for pos in arr %}
+					{{pos}}
+			{% endfor %}		
+			</p>
+					
+
+</body>
+</html>

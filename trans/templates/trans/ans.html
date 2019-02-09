@@ -1,11 +1,27 @@
 <!doctype html>
 <html>
 <head>
+<title>AADITYA</title>
+{% load staticfiles %}
+<link rel="shortcut icon" href="{% static 'img/Me.ico' %}"/>
 </head>
 <body>
-<h1>IN ans</h1>
-
-{{ans}}
-
-<a href="{% url 'trans:index' %}">Go Back to index</a>
+<!--<h1>IN ans</h1>-->
+<p>
+{% if ans != "" %}
+Entered Question is : {{query}}
+<br />
+Expected Language to convert : {{key}}
+<br />
+Entered language is : {{detect}}
+<br />
+Translation is: {{ans}}
+<br />
+{% else %}
+	NO InPUt check internet
+{% endif %}		
+</p>
+<br/>
+<a href="{% url 'trans:index' %}">Go Back to MAIN Page</a>
 </body>
+</html>

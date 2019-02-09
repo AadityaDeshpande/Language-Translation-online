@@ -5,5 +5,6 @@ app_name = 'trans'
 urlpatterns = [
     # ex: /trans/
     path('', views.index, name='index'),
-    path('ans/', views.ans, name='ans')
+    path('ans/', views.ans, name='ans'),
+    path('analysis/', views.analysis, name='analysis')
 ]

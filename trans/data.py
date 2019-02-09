@@ -1,39 +1,4 @@
-<!doctype html>
-<html>
-<head>
- <title>AADITYA</title>
-</head>
-<body>
-{% load staticfiles %}
-<link rel="shortcut icon" href="{% static 'img/Me.ico' %}"/>
-
-  <script type="text/javascript">
-     function Expand(obj){
-      if (!obj.savesize) obj.savesize=obj.size;
-      obj.size=Math.max(obj.savesize,obj.value.length);
-     }
-  </script>
-  
-<marquee style="font-size: 20px" >Language Translation Online</marquee>  
-  
-<form action = "{% url 'trans:ans' %}"  method = "post">
-{% csrf_token %}
-INPUT YOUR SENTENSE:
-															 
-<input type="text" name = "question" value = "" maxlength = "2000" autocomplete="off" onkeyup="Expand(this);" id="mmt" />
-
-<br />
-
-<!-- INPUT KEY OF LANG:
-<input type = "text" name = "key" value = "" maxlength = "7" autocomplete="off" size=4 /> -->
-<div align="center">
-<select id="selectNumber" name="key" >
-    <option>Choose a Language</option>
-</select>
-<script type="text/javascript">
-	
-	var select = document.getElementById("selectNumber");
-var options = [('af', 'Afrikaans'),
+list1=[('af', 'Afrikaans'),
  ('ar', 'Arabic'),
  ('ast', 'Asturian'),
  ('az', 'Azerbaijani'),
@@ -47,7 +12,7 @@ var options = [('af', 'Afrikaans'),
  ('cy', 'Welsh'),
  ('da', 'Danish'),
  ('de', 'German'),
- ('dsb', 'Lower Sorbian'),
+ ('dsb', 'Lower_Sorbian'),
  ('el', 'Greek'),
  ('en', 'English'),
  ('en-au', 'Australian English'),
@@ -69,7 +34,7 @@ var options = [('af', 'Afrikaans'),
  ('gd', 'Scottish Gaelic'),
  ('gl', 'Galician'),
  ('gu', 'Gujarati'),
- ('he', 'Hebrew'), 
+ ('he', 'Hebrew'),  #he or iw 
  ('hi', 'Hindi'),
  ('hr', 'Croatian'),
  ('hsb', 'Upper Sorbian'),
@@ -123,36 +88,47 @@ var options = [('af', 'Afrikaans'),
  ('ur', 'Urdu'),
  ('vi', 'Vietnamese'),
  ('zh-hans', 'Simplified Chinese'),
- ('zh-hant', 'Traditional Chinese')];
-for(var i = 0; i < options.length; i++) {
-    var opt = options[i];
-    var el = document.createElement("option");
-    el.textContent = opt;
-    el.value = opt;
-    select.appendChild(el);
-}
+ ('zh-hant', 'Traditional Chinese')]
 
-</script>
+def ser(key): #this function will search value when key is known
+	for row in list1:
+		if key==row[0]:
+			#print(row[1])
+			return row[1];
+
+def display(): 	#this will display a list
+	for row in list1:
+		print (row[0],"\t",row[1]) 
+
+def rev(value): #this function will search a key when value is known
+	value=value	#this .capitalize() function makes the 1st charater capital
+	for row in list1:
+		if value == row[1]:
+			return row[0];	
 
 
-</div>
-<br />            
-<!--OUTPUT OF SENTENSE: 
-<input type = "text" name = "answer" value = ""  maxlength = "2000" /> -->
-<input type = "submit"  value = "Translate" />
- <button type="submit" formaction="{% url 'trans:analysis' %}">Submit to analysis</button>
-</form>
-<br/>
-<!--<a href="{% url 'trans:ans' %}">click here</a>-->
-<!-- <div align="center">
+def main():
+	print(rev(input("Enter Key: ")))	
+	#display()
+	
+if __name__=='__main__':
+	main()
 
-</div> -->
-<style>
-form{
-text-align: center;
-}
+#perfectily working
+ 
+#print(list1);
+'''  
+inp="te"
 
-</style>
+for row in list1:
+		if inp==row[0]:
+			print(row[1]); '''
+	#for i in row:
+		#print(i);
+'''
+inp = "Marathi"
 
-</body>
-</html>
+for row in list1:
+	if inp == row[1]:
+		print(row[0])
+''' 
